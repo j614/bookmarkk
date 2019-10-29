@@ -25,6 +25,10 @@ SECRET_KEY = '^eu4d$j!!63a&nh^$f!1dqkpgho#(rrxo1o7=e$8$+3gzl(o=s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
 ALLOWED_HOSTS = []
 
 
