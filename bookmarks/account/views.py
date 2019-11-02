@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm
+from .forms import LoginForm, UserRegistrationForm
 from django.contrib.auth.decorators import login_required
+
 
 @login_required()
 def dashboard(request):
@@ -16,11 +17,11 @@ def user_login(request):
         if form.is_valid():
             cd = form.cleaned_data
             user = authenticate(request, username=cd['username'],
-                                password=cd['password'])   #проверяет учетные данные пользователя и возвращает объект User
+                                password=cd['password']) #проверяет учетные данные пользователя и возвращает объект User
 
             if user is not None:
                 if user.is_avtive:
-                    login(request, user)  #login() устанавливает для пользователя сессию.
+                    login(request, user) #login() устанавливает для пользователя сессию.
                     return HttpResponse('Authenticated successfully')
                 else:
                     return HttpResponse('Disabled account')
@@ -29,3 +30,20 @@ def user_login(request):
     else:
         form = LoginForm()
     return render(request, 'account/login.html', {'form': form})
+
+
+def register(request):
+    if request.method == 'POST':
+        user_form = UserRegistrationForm(request.POST)
+        if user_form.is_valid():
+            new_user = user_form.save(commit=False)
+            new_user.set_password(user_form.cleaned_data['password'])
+            new_user.save()
+            return render(request,
+                          'account/register_done.html',
+                          {'new_user': new_user})
+    else:
+        user_form = UserRegistrationForm()
+    return render(request,
+                  'account/register.html',
+                  {'user_form': user_form})
