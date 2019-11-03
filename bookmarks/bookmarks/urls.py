@@ -20,11 +20,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('account/', include('account.urls'))
+    path('account/', include('account.urls')),
+    path('social-auth/', include('social_django', namespace='social')),
 ]
 
-#Функция static() подходит для разработки, но не для использования впроизводстве. Никогда не обслуживайте ваши статические файлы
+"""Функция static() подходит для разработки, но не для использования впроизводстве. Никогда не обслуживайте ваши статические файлы
             #Django в производственной среде.
+            """
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
