@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
     path('social-auth/', include('social_django.urls', namespace='social')),
+    path('images/', include('images.urls', namespace='images')),
 ]
 
 """Функция static() подходит для разработки, но не для использования впроизводстве. Никогда не обслуживайте ваши статические файлы
