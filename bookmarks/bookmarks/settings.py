@@ -36,7 +36,8 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'VFoDchYt5If2bwwglpgFKjTR' # Google Consumer 
 ALLOWED_HOSTS = ['mysite.com',
                  'localhost',
                  '127.0.0.1',
-                 'ca3fd990.ngrok.io', ]
+                 'ca3fd990.ngrok.io',
+                 'b841b9a5.ngrok.io']
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
