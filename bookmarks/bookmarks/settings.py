@@ -33,7 +33,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '495787304669-4c6nv5vetoftnaum5snojg9fbqupdlfj.apps.googleusercontent.com' # Google Consumer Key
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'VFoDchYt5If2bwwglpgFKjTR' # Google Consumer Secret
 
-ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['mysite.com',
+                 'localhost',
+                 '127.0.0.1',
+                 'ca3fd990.ngrok.io', ]
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
