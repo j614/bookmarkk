@@ -37,7 +37,7 @@ ALLOWED_HOSTS = ['mysite.com',
                  'localhost',
                  '127.0.0.1',
                  'ca3fd990.ngrok.io',
-                 'b841b9a5.ngrok.io']
+                 'b2c23bf2.ngrok.io',]
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
