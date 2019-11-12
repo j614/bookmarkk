@@ -11,13 +11,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from django.urls import reverse_lazy
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ABSOLUTE_URL_OVERRIDES = {'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username])
-}
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -30,6 +28,8 @@ DEBUG = True
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '495787304669-4c6nv5vetoftnaum5snojg9fbqupdlfj.apps.googleusercontent.com' # Google Consumer Key
@@ -145,3 +145,12 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 THUMBNAIL_DEBUG = True
+
+
+from django.urls import reverse_lazy
+
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail',
+                                        args=[u.username])
+}

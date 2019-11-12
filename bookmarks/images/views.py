@@ -50,10 +50,11 @@ def image_like(request):
             pass
     return JsonResponse({'status': 'ko'})
 
+
 @login_required
 def image_list(request):
     images = Image.objects.all()
-    paginator = Paginator('images', 8)
+    paginator = Paginator(images, 8)
     page = request.GET.get('page')
     try:
         images = paginator.page(page)
