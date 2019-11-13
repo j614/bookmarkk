@@ -99,7 +99,7 @@ def user_follow(request):
     action = request.POST.get('action')
     if user_id and action:
         try:
-            user=User.objects.get(id=user_id)
+            user = User.objects.get(id=user_id)
             if action == 'follow':
                 Contact.objects.get_or_create(user_from=request.user, user_to=user)
             else:
