@@ -22,7 +22,7 @@
 {% endblock %}
 <h2>What's happening</h2>
 <div id="action-list">
-{% for action in actions %}
-{% include "actions/action/detail.html" %}
-{% endfor %}
+  {% for action in actions %}
+    {% include "actions/action/detail.html" %}
+  {% endfor %}
 </div>
